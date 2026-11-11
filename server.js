@@ -5,7 +5,7 @@ const { URL } = require('node:url');
 const busboy = require('busboy');
 const db = require('./database.js');
 
-const PORT = process.env.PORT || 3001;
+const PORT = parseInt(process.env.PORT, 10) || 3001;
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const UPLOADS_DIR = path.join(__dirname, 'uploads');
 
