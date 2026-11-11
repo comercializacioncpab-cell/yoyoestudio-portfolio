@@ -15,7 +15,7 @@
   <link rel="icon" type="image/png" href="/logos/yoyo-icon.png">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="/styles.css?v=5.0">
+  <link rel="stylesheet" href="/styles.css?v=6.0">
 </head>
 <body>
 
@@ -90,7 +90,7 @@
     <div class="container">
       
       <!-- Category Filter Cards -->
-      <nav class="category-filters" aria-label="Filtro de categorías de proyectos">
+      <nav class="category-filters" id="categoryFiltersNav" aria-label="Filtro de categorías de proyectos">
         <div class="category-grid" id="categoryTabs">
           <button class="filter-tab" data-category="Diseño gráfico" style="--cat-color: #2ec4b6;">
             <div class="tab-icon-wrap">
@@ -612,10 +612,85 @@
     </div>
   </div>
 
+  <!-- Floating Category Sidebar Dock (Flotante a un costado al seleccionar categoría) -->
+  <aside class="floating-category-dock" id="floatingCategoryDock" aria-label="Navegación flotante de categorías" style="display: none;">
+    <div class="dock-items-wrapper">
+      <button class="dock-btn" data-dock-category="Diseño gráfico" style="--cat-color: #2ec4b6;" title="Diseño gráfico" aria-label="Diseño gráfico">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.563-2.512 5.563-5.563C21.437 6.094 17.218 2 12 2z"></path>
+          <circle cx="7.5" cy="11.5" r="1.5" fill="currentColor"></circle>
+          <circle cx="12" cy="7.5" r="1.5" fill="currentColor"></circle>
+          <circle cx="16.5" cy="11.5" r="1.5" fill="currentColor"></circle>
+        </svg>
+        <span class="dock-tooltip">Diseño gráfico</span>
+      </button>
+
+      <button class="dock-btn" data-dock-category="Redes sociales" style="--cat-color: #e63946;" title="Redes sociales" aria-label="Redes sociales">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="2" width="14" height="20" rx="3"></rect>
+          <path d="M12 18h.01"></path>
+          <path d="M9 7h6"></path>
+          <path d="M9 11h6"></path>
+        </svg>
+        <span class="dock-tooltip">Redes sociales</span>
+      </button>
+
+      <button class="dock-btn" data-dock-category="Páginas web" style="--cat-color: #9d4edd;" title="Páginas web" aria-label="Páginas web">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+        <span class="dock-tooltip">Páginas web</span>
+      </button>
+
+      <button class="dock-btn" data-dock-category="Videos publicitarios" style="--cat-color: #ffb703;" title="Videos publicitarios" aria-label="Videos publicitarios">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+          <line x1="7" y1="2" x2="7" y2="22"></line>
+          <line x1="17" y1="2" x2="17" y2="22"></line>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <line x1="2" y1="7" x2="7" y2="7"></line>
+          <line x1="2" y1="17" x2="7" y2="17"></line>
+          <line x1="17" y1="17" x2="22" y2="17"></line>
+          <line x1="17" y1="7" x2="22" y2="7"></line>
+        </svg>
+        <span class="dock-tooltip">Videos publicitarios</span>
+      </button>
+
+      <button class="dock-btn" data-dock-category="Videos de evento" style="--cat-color: #f72585;" title="Videos de evento" aria-label="Videos de evento">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="23 7 16 12 23 17 23 7"></polygon>
+          <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+          <circle cx="8.5" cy="12" r="2.5"></circle>
+        </svg>
+        <span class="dock-tooltip">Videos de evento</span>
+      </button>
+
+      <button class="dock-btn" data-dock-category="Fotografía" style="--cat-color: #4cc9f0;" title="Fotografía" aria-label="Fotografía">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+          <circle cx="12" cy="13" r="4"></circle>
+        </svg>
+        <span class="dock-tooltip">Fotografía</span>
+      </button>
+    </div>
+
+    <!-- Separador y Botón Back en el fondo -->
+    <div class="dock-divider" role="separator"></div>
+
+    <button class="dock-btn dock-back-btn" id="dockBackBtn" title="Volver al inicio (Ver todas las opciones)" aria-label="Volver al inicio">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      <span class="dock-tooltip">Volver al inicio</span>
+    </button>
+  </aside>
+
   <!-- Toast Notification Container -->
   <div id="toastContainer" class="toast-container" aria-live="polite"></div>
 
   <!-- Application Logic -->
-  <script src="/app.js?v=5.0"></script>
+  <script src="/app.js?v=6.0"></script>
 </body>
 </html>

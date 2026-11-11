@@ -37,11 +37,15 @@
     brandHomeLink: document.getElementById('brandHomeLink'),
 
     // Hero & Stats
+    heroSection: document.getElementById('heroSection'),
     heroStudioTagline: document.getElementById('heroStudioTagline'),
     statProjectsCount: document.getElementById('statProjectsCount'),
 
-    // Category Tabs & Counts
+    // Category Tabs & Floating Dock
+    categoryFiltersNav: document.getElementById('categoryFiltersNav'),
     categoryTabs: document.getElementById('categoryTabs'),
+    floatingCategoryDock: document.getElementById('floatingCategoryDock'),
+    dockBackBtn: document.getElementById('dockBackBtn'),
     filterStatus: document.getElementById('filterStatus'),
     filterStatusText: document.getElementById('filterStatusText'),
     resetFiltersBtn: document.getElementById('resetFiltersBtn'),
@@ -155,6 +159,7 @@
     }
     updateAdminBtnState();
     updateCategoryFormState();
+    updateCategoryNavUI();
 
     // Si entra con enlace secreto de administración (?admin o /admin), abrir directamente
     const isSecretUrl = window.location.search.includes('admin') || window.location.pathname.includes('/admin');
@@ -1231,13 +1236,36 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Category Tabs click
+    // Category Tabs click (Large centered grid)
     el.categoryTabs.addEventListener('click', (e) => {
       const tab = e.target.closest('.filter-tab');
       if (!tab) return;
       const cat = tab.dataset.category;
       setCategory(cat);
     });
+
+    // Floating Category Dock click (Flotante a un costado)
+    if (el.floatingCategoryDock) {
+      el.floatingCategoryDock.addEventListener('click', (e) => {
+        const backBtn = e.target.closest('#dockBackBtn');
+        if (backBtn) {
+          // Botón Back en el fondo: vuelve a la pantalla inicial limpia con los 6 iconos grandes
+          setCategory(null);
+          if (el.searchInput) {
+            el.searchInput.value = '';
+            state.searchQuery = '';
+            if (el.clearSearchBtn) el.clearSearchBtn.style.display = 'none';
+          }
+          return;
+        }
+
+        const dockItem = e.target.closest('[data-dock-category]');
+        if (dockItem) {
+          const cat = dockItem.dataset.dockCategory;
+          setCategory(cat);
+        }
+      });
+    }
 
     // Footer category links
     document.querySelectorAll('[data-footer-cat]').forEach(link => {
@@ -1425,22 +1453,68 @@
     el.settingsForm.addEventListener('submit', handleSettingsSubmit);
   }
 
-  function setCategory(cat) {
-    if (state.activeCategory === cat) {
-      // Alternar si ya está activo para volver a la pantalla limpia inicial
-      state.activeCategory = null;
+  function updateCategoryNavUI() {
+    const isCatActive = !!state.activeCategory;
+    const isSearchActive = !!state.searchQuery;
+
+    document.body.classList.toggle('category-active', isCatActive || isSearchActive);
+
+    if (isCatActive) {
+      if (el.floatingCategoryDock) {
+        el.floatingCategoryDock.style.display = 'flex';
+        requestAnimationFrame(() => {
+          if (el.floatingCategoryDock) {
+            el.floatingCategoryDock.classList.add('visible');
+          }
+        });
+      }
+      if (el.categoryFiltersNav) {
+        el.categoryFiltersNav.style.display = 'none';
+      }
+      if (el.heroSection) {
+        el.heroSection.classList.add('hero-compact');
+      }
     } else {
-      state.activeCategory = cat;
+      if (el.floatingCategoryDock) {
+        el.floatingCategoryDock.classList.remove('visible');
+        setTimeout(() => {
+          if (!state.activeCategory && el.floatingCategoryDock) {
+            el.floatingCategoryDock.style.display = 'none';
+          }
+        }, 260);
+      }
+      if (el.categoryFiltersNav) {
+        el.categoryFiltersNav.style.display = 'block';
+      }
+      if (el.heroSection) {
+        el.heroSection.classList.remove('hero-compact');
+      }
     }
+
+    // Actualizar clases activas en los iconos grandes y en el dock flotante
     document.querySelectorAll('.filter-tab').forEach(t => {
-      t.classList.toggle('active', !!state.activeCategory && t.dataset.category === state.activeCategory);
+      t.classList.toggle('active', isCatActive && t.dataset.category === state.activeCategory);
     });
+    document.querySelectorAll('.dock-btn[data-dock-category]').forEach(btn => {
+      btn.classList.toggle('active', isCatActive && btn.dataset.dockCategory === state.activeCategory);
+    });
+  }
+
+  function setCategory(cat) {
+    state.activeCategory = cat;
+    updateCategoryNavUI();
     applyFilters();
-    if (state.activeCategory && el.filterStatus) {
+
+    if (state.activeCategory) {
       setTimeout(() => {
-        const yOffset = el.filterStatus.getBoundingClientRect().top + window.pageYOffset - 90;
-        window.scrollTo({ top: yOffset, behavior: 'smooth' });
+        const target = el.filterStatus || el.projectsGrid;
+        if (target) {
+          const yOffset = target.getBoundingClientRect().top + window.pageYOffset - 90;
+          window.scrollTo({ top: Math.max(0, yOffset), behavior: 'smooth' });
+        }
       }, 50);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
