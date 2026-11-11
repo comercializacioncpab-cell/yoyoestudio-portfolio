@@ -106,7 +106,7 @@ function serveFile(req, res, filePath) {
         'Content-Length': totalSize,
         'Content-Type': contentType,
         'Accept-Ranges': 'bytes',
-        'Cache-Control': ext === '.html' ? 'no-cache' : 'public, max-age=86400'
+        'Cache-Control': (ext === '.html' || ext === '.css' || ext === '.js') ? 'no-cache, must-revalidate' : 'public, max-age=86400'
       });
 
       fs.createReadStream(filePath).pipe(res);
