@@ -374,38 +374,55 @@ button, input, select, textarea {
 }
 
 /* ========================================================
-   Category Filters (Large & Organized Cards)
+   Category Filters (Large, Centered, Impactful Cards)
    ======================================================== */
 .category-filters {
-  margin: 1.5rem 0 2.5rem;
+  margin: 2rem auto 3.5rem;
+  max-width: 1200px;
   width: 100%;
 }
 
 .category-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 1rem;
+  gap: 1.25rem;
   width: 100%;
+  justify-content: center;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1150px) {
   .category-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.85rem;
+    gap: 1rem;
   }
 }
 
 @media (max-width: 640px) {
   .category-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.65rem;
+    gap: 0.75rem;
+  }
+  .filter-tab {
+    padding: 1.4rem 0.65rem;
+    min-height: 150px;
+  }
+  .tab-icon-wrap {
+    width: 60px;
+    height: 60px;
+  }
+  .tab-icon-wrap svg {
+    width: 30px;
+    height: 30px;
+  }
+  .tab-label {
+    font-size: 0.95rem;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 380px) {
   .category-grid {
     grid-template-columns: 1fr;
-    gap: 0.5rem;
+    gap: 0.65rem;
   }
 }
 
@@ -415,19 +432,19 @@ button, input, select, textarea {
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 0.75rem;
-  padding: 1.25rem 0.85rem;
+  gap: 1rem;
+  padding: 1.85rem 1rem;
   background: var(--bg-card);
   border: 1.5px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
+  border-radius: 20px;
   color: var(--text-secondary);
   cursor: pointer;
   position: relative;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   user-select: none;
   overflow: hidden;
-  min-height: 124px;
+  min-height: 175px;
 }
 
 .filter-tab::before {
@@ -436,28 +453,28 @@ button, input, select, textarea {
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 4px;
   background: var(--cat-color, var(--primary));
   opacity: 0;
   transition: opacity 0.25s ease;
 }
 
 .filter-tab:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--cat-color, var(--primary));
-  box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 14px 32px -6px rgba(0, 0, 0, 0.45);
   color: var(--text-primary);
 }
 
 .filter-tab:hover::before {
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .filter-tab.active {
   background: var(--bg-card);
   border-color: var(--cat-color, var(--primary));
   color: var(--text-primary);
-  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--cat-color, var(--primary));
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.5), 0 0 0 1.5px var(--cat-color, var(--primary));
 }
 
 .filter-tab.active::before {
@@ -468,33 +485,33 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.04);
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
   color: var(--cat-color, var(--text-primary));
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.25s ease;
+  border: 1.5px solid rgba(255, 255, 255, 0.09);
+  transition: all 0.28s ease;
 }
 
 .tab-icon-wrap svg {
-  width: 26px;
-  height: 26px;
+  width: 36px;
+  height: 36px;
   stroke: var(--cat-color, currentColor);
   stroke-width: 2.1;
-  transition: transform 0.25s ease;
+  transition: transform 0.28s ease;
 }
 
 .filter-tab:hover .tab-icon-wrap {
-  transform: scale(1.08);
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 18px -2px var(--cat-color, rgba(255, 255, 255, 0.25));
+  transform: scale(1.12);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 24px -2px var(--cat-color, rgba(255, 255, 255, 0.3));
 }
 
 .filter-tab.active .tab-icon-wrap {
-  transform: scale(1.08);
-  background: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 0 20px -2px var(--cat-color, rgba(255, 255, 255, 0.35));
+  transform: scale(1.12);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 28px -2px var(--cat-color, rgba(255, 255, 255, 0.45));
   border-color: var(--cat-color, var(--primary));
 }
 
@@ -502,13 +519,13 @@ button, input, select, textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.45rem;
   width: 100%;
 }
 
 .tab-label {
   font-family: var(--font-display, 'Montserrat', sans-serif);
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.25;
   color: inherit;
@@ -517,7 +534,16 @@ button, input, select, textarea {
 
 .tab-count {
   font-family: var(--font-body, 'Montserrat', sans-serif);
-  font-size: 0.74rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.2rem 0.7rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  border-radius: var(--radius-full);
+  min-width: 26px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
   font-weight: 700;
   padding: 0.15rem 0.6rem;
   background: rgba(255, 255, 255, 0.08);

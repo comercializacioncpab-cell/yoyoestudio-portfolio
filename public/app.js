@@ -155,6 +155,16 @@
     }
     updateAdminBtnState();
     updateCategoryFormState();
+
+    // Si entra con enlace secreto de administración (?admin o /admin), abrir directamente
+    const isSecretUrl = window.location.search.includes('admin') || window.location.pathname.includes('/admin');
+    if (isSecretUrl) {
+      if (!state.isAdmin) {
+        setTimeout(openPinModal, 300);
+      } else {
+        setTimeout(openAdminDrawer, 300);
+      }
+    }
   }
 
   // --- THEME ---
@@ -611,10 +621,12 @@
   }
 
   function updateAdminBtnState() {
-    if (state.isAdmin) {
-      el.adminBtnLabel.textContent = 'Gestor Admin';
+    const isSecretUrl = window.location.search.includes('admin') || window.location.pathname.includes('/admin');
+    if (state.isAdmin || isSecretUrl) {
+      el.adminPortalBtn.style.display = 'inline-flex';
+      el.adminBtnLabel.textContent = state.isAdmin ? 'Panel Estudio' : 'Acceso Estudio';
     } else {
-      el.adminBtnLabel.textContent = 'Subir Trabajos';
+      el.adminPortalBtn.style.display = 'none';
     }
   }
 
