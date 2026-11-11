@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOYOESTUDIO — Portafolio Creativo & Producción Visual</title>
+  <meta name="description" content="Portafolio oficial de YOYOESTUDIO: Diseño gráfico, Redes sociales, Páginas web, Videos publicitarios, Videos de evento y Fotografía.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/logos/yoyo-icon.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <!-- Top Announcement / Brand Stripe -->
+  <div class="brand-stripe">
+    <span class="stripe-dot stripe-teal"></span>
+    <span class="stripe-dot stripe-red"></span>
+    <span class="stripe-dot stripe-purple"></span>
+    <span class="stripe-dot stripe-yellow"></span>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-container">
+      <a href="#" class="brand-identity" id="brandHomeLink" title="YOYOESTUDIO">
+        <img src="/logos/yoyo-logo-full.png" alt="YOYOESTUDIO Logo" class="brand-full-logo" onerror="this.onerror=null; this.src='/logos/yoyo-icon.png'">
+      </a>
+
+      <!-- Center navigation / search -->
+      <div class="nav-center">
+        <div class="search-box">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="searchInput" placeholder="Buscar por cliente, proyecto o técnica..." aria-label="Buscar proyectos">
+          <button id="clearSearchBtn" class="clear-search-btn" title="Limpiar búsqueda" style="display: none;">&times;</button>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="themeToggleBtn" class="icon-btn" title="Cambiar tema claro/oscuro" aria-label="Cambiar tema">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <!-- Contact CTA -->
+        <a id="headerWhatsappBtn" href="https://wa.me/593999999999?text=Hola%20YOYOESTUDIO,%20deseo%20cotizar%20un%20proyecto" target="_blank" class="btn btn-outline" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          <span>Cotizar</span>
+        </a>
+
+        <!-- Portal Admin / Creador Button -->
+        <button id="adminPortalBtn" class="btn btn-primary admin-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          <span id="adminBtnLabel">Subir Trabajos</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section (Visible in Client View) -->
+  <section class="hero-section" id="heroSection">
+    <div class="container hero-container">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span id="heroStudioTagline">Diseño, Estrategia & Producción Visual</span>
+      </div>
+
+      <h1 class="hero-title">
+        Creamos ideas que <span class="gradient-text">giran y trascienden</span>.
+      </h1>
+
+      <p class="hero-subtitle">
+        Estudio creativo especializado en construir identidades inolvidables, contenido de alto impacto para redes, desarrollo web y producción audiovisual cinematográfica.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Showcase & Filter Section -->
+  <main class="portfolio-main">
+    <div class="container">
+      
+      <!-- Category Filter Cards -->
+      <nav class="category-filters" aria-label="Filtro de categorías de proyectos">
+        <div class="category-grid" id="categoryTabs">
+          <button class="filter-tab active" data-category="Todos" style="--cat-color: #ffffff;">
+            <div class="tab-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+                <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+                <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+              </svg>
+            </div>
+            <div class="tab-body">
+              <span class="tab-label">Todos</span>
+              <span class="tab-count" id="count-all">0</span>
+            </div>
+          </button>
+
+          <button class="filter-tab" data-category="Diseño gráfico" style="--cat-color: #2ec4b6;">
+            <div class="tab-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.563-2.512 5.563-5.563C21.437 6.094 17.218 2 12 2z"></path>
+                <circle cx="7.5" cy="11.5" r="1.5" fill="currentColor"></circle>
+                <circle cx="12" cy="7.5" r="1.5" fill="currentColor"></circle>
+                <circle cx="16.5" cy="11.5" r="1.5" fill="currentColor"></circle>
+              </svg>
+            </div>
+            <div class="tab-body">
+              <span class="tab-label">Diseño gráfico</span>
+              <span class="tab-count" id="count-diseno">0</span>
+            </div>
+          </button>
+
+          <button class="filter-tab" data-category="Redes sociales" style="--cat-color: #e63946;">
+            <div class="tab-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="3"></rect>
+                <path d="M12 18h.01"></path>
+                <path d="M9 7h6"></path>
+                <path d="M9 11h6"></path>
+              </svg>
+            </div>
+            <div class="tab-body">
+              <span class="tab-label">Redes sociales</span>
+              <span class="tab-count" id="count-redes">0</span>
+            </div>
+          </button>
+
+          <button class="filter-tab" data-category="Páginas web" style="--cat-color: #9d4edd;">
+            <div class="tab-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <div class="tab-body">
+              <span class="tab-label">Páginas web</span>
+              <span class="tab-count" id="count-web">0</span>
+            </div>
+          </button>
+
+          <button class="filter-tab" data-category="Videos publicitarios" style="--cat-color: #ffb703;">
+            <div class="tab-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                <line x1="7" y1="2" x2="7" y2="22"></line>
+                <line x1="17" y1="2" x2="17" y2="22"></line>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <line x1="2" y1="7" x2="7" y2="7"></line>
+                <line x1="2" y1="17" x2="7" y2="17"></line>
+                <line x1="17" y1="17" x2="22" y2="17"></line>
+                <line x1="17" y1="7" x2="22" y2="7"></line>
+              </svg>
+            </div>
+            <div class="tab-body">
+              <span class="tab-label">Videos publicitarios</span>
+              <span class="tab-count" id="count-vidpub">0</span>
+            </div>
+          </button>
+
+          <button class="filter-tab" data-category="Videos de evento" style="--cat-color: #f72585;">
+            <div class="tab-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="12" r="2.5"></circle>
+              </svg>
+            </div>
+            <div class="tab-body">
+              <span class="tab-label">Videos de evento</span>
+              <span class="tab-count" id="count-videv">0</span>
+            </div>
+          </button>
+
+          <button class="filter-tab" data-category="Fotografía" style="--cat-color: #4cc9f0;">
+            <div class="tab-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+            </div>
+            <div class="tab-body">
+              <span class="tab-label">Fotografía</span>
+              <span class="tab-count" id="count-foto">0</span>
+            </div>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Results feedback / active filter bar -->
+      <div class="active-filter-status" id="filterStatus" style="display: none;">
+        <span id="filterStatusText">Mostrando proyectos de: <strong>Todos</strong></span>
+        <button id="resetFiltersBtn" class="reset-link">Restablecer</button>
+      </div>
+
+      <!-- Loading State -->
+      <div class="loading-state" id="loadingState">
+        <div class="spinner"></div>
+        <p>Cargando portafolio de YOYOESTUDIO...</p>
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="emptyState" style="display: none;">
+        <div class="empty-icon">
+          <img src="/logos/yoyo-icon.png" alt="YOYO" width="64" height="64" style="opacity: 0.5;">
+        </div>
+        <h3 id="emptyTitle">No se encontraron proyectos</h3>
+        <p id="emptyDesc">No hay trabajos en esta categoría o con esta búsqueda todavía.</p>
+        <button id="emptyUploadBtn" class="btn btn-primary" style="margin-top: 1rem;">
+          Subir el primer proyecto
+        </button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Studio Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <img src="/logos/yoyo-logo-full.png" alt="YOYOESTUDIO" class="footer-logo">
+        <p class="footer-desc">
+          Estudio multidisciplinario de diseño, tecnología y creación visual. Elevamos marcas con identidad, creatividad y precisión.
+        </p>
+      </div>
+
+      <div class="footer-categories">
+        <h4>Especialidades</h4>
+        <ul>
+          <li><a href="#" data-footer-cat="Diseño gráfico">Diseño Gráfico & Branding</a></li>
+          <li><a href="#" data-footer-cat="Redes sociales">Estrategia & Redes Sociales</a></li>
+          <li><a href="#" data-footer-cat="Páginas web">Desarrollo Web & UX/UI</a></li>
+          <li><a href="#" data-footer-cat="Videos publicitarios">Videos Publicitarios</a></li>
+          <li><a href="#" data-footer-cat="Videos de evento">Cobertura de Eventos</a></li>
+          <li><a href="#" data-footer-cat="Fotografía">Fotografía Comercial & Editorial</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Conectemos</h4>
+        <p id="footerEmailText">contacto@yoyoestudio.com</p>
+        <div class="footer-actions">
+          <a id="footerWhatsappLink" href="https://wa.me/593999999999" target="_blank" class="btn btn-outline btn-sm" rel="noopener">
+            WhatsApp Directo
+          </a>
+          <button id="footerAdminLink" class="admin-link-discrete">
+            Portal Administrador
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>&copy; <span id="currentYear"></span> YOYOESTUDIO. Todos los derechos reservados.</p>
+        <p class="signature">Hecho con pasión por el diseño & el arte visual.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: LIGHTBOX / CASE STUDY DETAIL VIEWER               -->
+  <!-- ======================================================== -->
+  <dialog id="projectModal" class="project-modal" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="closeProjectModalBtn" title="Cerrar modal (Esc)">&times;</button>
+      
+      <div class="modal-body">
+        <!-- Media Showcase Column -->
+        <div class="modal-media-col">
+          <div class="modal-media-viewer" id="modalMediaViewer">
+            <!-- Active Image / Video injected here -->
+          </div>
+
+          <!-- Carousel Thumbnails (if multiple media) -->
+          <div class="media-carousel-nav" id="mediaCarouselNav" style="display: none;">
+            <!-- Thumbnail buttons -->
+          </div>
+        </div>
+
+        <!-- Info & Details Column -->
+        <div class="modal-info-col">
+          <div class="modal-badge-row">
+            <span class="category-pill" id="modalCategoryPill">Categoría</span>
+            <span class="client-pill" id="modalClientPill">Cliente</span>
+            <span class="year-pill" id="modalYearPill">2026</span>
+          </div>
+
+          <h2 class="modal-title" id="modalTitle">Título del Proyecto</h2>
+          
+          <div class="modal-description" id="modalDescription">
+            Descripción completa del trabajo realizado...
+          </div>
+
+          <div class="modal-action-row">
+            <!-- Live Web Link -->
+            <a id="modalExternalLink" href="#" target="_blank" rel="noopener" class="btn btn-outline" style="display: none;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              <span>Ver Proyecto en Vivo</span>
+            </a>
+
+            <!-- WhatsApp Inquire about this specific project -->
+            <a id="modalWhatsappProjectBtn" href="#" target="_blank" rel="noopener" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              <span>Cotizar Proyecto Similar</span>
+            </a>
+          </div>
+
+          <!-- Quick Navigation Buttons -->
+          <div class="modal-nav-arrows">
+            <button id="modalPrevProjectBtn" class="nav-arrow" title="Proyecto anterior (Flecha Izquierda)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              <span>Anterior</span>
+            </button>
+            <button id="modalNextProjectBtn" class="nav-arrow" title="Siguiente proyecto (Flecha Derecha)">
+              <span>Siguiente</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: PIN AUTHENTICATION                                -->
+  <!-- ======================================================== -->
+  <dialog id="pinModal" class="auth-modal" aria-modal="true">
+    <div class="modal-card pin-card">
+      <button class="modal-close-btn" id="closePinModalBtn">&times;</button>
+      <div class="pin-header">
+        <img src="/logos/yoyo-icon.png" alt="YOYO" width="56" height="56">
+        <h3>Portal de Administrador</h3>
+        <p>Ingresa el PIN de seguridad para subir y gestionar proyectos en YOYOESTUDIO.</p>
+        <div class="pin-hint-tag">PIN predeterminado: <strong>1234</strong></div>
+      </div>
+
+      <form id="pinForm" class="pin-form">
+        <div class="form-group">
+          <input type="password" id="pinInput" maxlength="12" placeholder="Introduce el PIN" required autofocus autocomplete="current-password">
+        </div>
+        <div class="pin-error" id="pinErrorMsg" style="display: none;">PIN incorrecto. Vuelve a intentar.</div>
+        <button type="submit" class="btn btn-primary btn-block">
+          Desbloquear Gestor
+        </button>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- ======================================================== -->
+  <!-- DRAWER / PANEL: ADMIN DASHBOARD (BACKEND)               -->
+  <!-- ======================================================== -->
+  <div id="adminDrawer" class="admin-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="drawer-title-group">
+        <img src="/logos/yoyo-icon.png" alt="YOYO" width="36" height="36">
+        <div>
+          <h2>Gestor de Portafolio YOYOESTUDIO</h2>
+          <span class="drawer-subtitle">Panel de Creador — Arrastra tus archivos y publica</span>
+        </div>
+      </div>
+      <div class="drawer-top-actions">
+        <button id="closeAdminDrawerBtn" class="btn btn-icon-round" title="Cerrar panel">&times;</button>
+      </div>
+    </div>
+
+    <!-- Admin Tabs -->
+    <div class="admin-tabs">
+      <button class="admin-tab-btn active" data-tab="uploadTab">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+        <span>Nuevo Proyecto</span>
+      </button>
+      <button class="admin-tab-btn" data-tab="manageTab">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        <span>Gestionar Publicados</span>
+        <span class="badge-mini" id="adminProjectsCount">0</span>
+      </button>
+      <button class="admin-tab-btn" data-tab="settingsTab">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        <span>Ajustes & Contacto</span>
+      </button>
+    </div>
+
+    <div class="drawer-content">
+      <!-- TAB 1: UPLOAD / EDIT PROJECT FORM -->
+      <div id="uploadTab" class="admin-tab-pane active">
+        <form id="projectUploadForm" class="project-form">
+          <input type="hidden" id="editProjectId" value="">
+
+          <div class="form-header-bar">
+            <h3 id="formModeTitle">Nuevo Proyecto en Portafolio</h3>
+            <button type="button" id="cancelEditBtn" class="btn btn-outline btn-sm" style="display: none;">Cancelar Edición</button>
+          </div>
+
+          <!-- DRAG & DROP ZONE -->
+          <div class="form-section">
+            <label class="form-label">
+              Archivos Multimedia (Fotos, Diseños o Videos)
+              <span class="required-mark">*</span>
+            </label>
+            <div class="dropzone" id="mediaDropzone">
+              <input type="file" id="mediaFileInput" multiple accept="image/*,video/*" class="dropzone-file-input">
+              <div class="dropzone-content">
+                <div class="dropzone-icon">
+                  <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                </div>
+                <h4>Arrastra tus imágenes o videos aquí</h4>
+                <p>o <span class="browse-link">haz clic para examinar desde tu computadora</span></p>
+                <span class="dropzone-formats">JPG, PNG, WEBP, GIF, MP4, MOV, WEBM (Hasta 500MB)</span>
+              </div>
+            </div>
+
+            <!-- Upload Preview Grid -->
+            <div class="media-previews-grid" id="mediaPreviewsGrid">
+              <!-- Uploaded / selected items preview -->
+            </div>
+          </div>
+
+          <!-- PROJECT DETAILS FORM FIELDS -->
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="projectTitleInput" class="form-label">Título del Proyecto <span class="required-mark">*</span></label>
+              <input type="text" id="projectTitleInput" placeholder="Ej: Branding Editorial Lumina" required>
+            </div>
+
+            <div class="form-group">
+              <label for="projectCategorySelect" class="form-label">Categoría <span class="required-mark">*</span></label>
+              <select id="projectCategorySelect" required>
+                <option value="Diseño gráfico">Diseño gráfico</option>
+                <option value="Redes sociales">Redes sociales</option>
+                <option value="Páginas web">Páginas web</option>
+                <option value="Videos publicitarios">Videos publicitarios</option>
+                <option value="Videos de evento">Videos de evento</option>
+                <option value="Fotografía">Fotografía</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="projectClientInput" class="form-label">Cliente o Marca</label>
+              <input type="text" id="projectClientInput" placeholder="Ej: Aurora Festival / Nike Inc.">
+            </div>
+
+            <div class="form-group">
+              <label for="projectYearInput" class="form-label">Año / Fecha</label>
+              <input type="text" id="projectYearInput" placeholder="Ej: 2026">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="projectDescInput" class="form-label">Descripción del Proyecto</label>
+            <textarea id="projectDescInput" rows="4" placeholder="Describe el reto, la dirección creativa, los entregables y el impacto logrado..."></textarea>
+          </div>
+
+          <!-- DYNAMIC WEB URL & SCREENSHOT CAPTURE (Highlighted for Páginas Web) -->
+          <div class="web-url-section" id="webUrlSection">
+            <div class="form-group">
+              <label for="projectWebUrlInput" class="form-label">
+                <span id="webUrlLabelText">Enlace del Sitio Web</span>
+                <span class="web-badge-highlight" id="webUrlBadge">🌐 Páginas Web</span>
+              </label>
+              <div class="input-with-action">
+                <input type="text" inputmode="url" id="projectWebUrlInput" placeholder="Ej: apple.com, tucliente.com o https://...">
+                <button type="button" id="captureWebScreenshotBtn" class="btn btn-primary btn-sm capture-btn" title="Detectar y capturar portada">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                  <span id="captureBtnText">Detectar Web</span>
+                </button>
+              </div>
+
+              <!-- Live Web Detection Box -->
+              <div class="web-detection-status" id="webDetectionStatus" style="display: none;">
+                <div class="detection-spinner" id="detectionSpinner"></div>
+                <div class="detection-info">
+                  <div class="detection-text" id="detectionText">Detectando sitio web...</div>
+                  <div class="detection-subtext" id="detectionSubtext">Obteniendo captura y datos de la página</div>
+                </div>
+                <a href="#" target="_blank" rel="noopener" id="testWebLinkBtn" class="test-web-btn" style="display: none;">
+                  Visitar Web ↗
+                </a>
+              </div>
+
+              <!-- Dedicated Live Screenshot Preview Box -->
+              <div class="web-screenshot-preview-box" id="webScreenshotPreviewBox" style="display: none;">
+                <div class="screenshot-preview-header">
+                  <div class="screenshot-site-info">
+                    <span class="status-live-dot"></span>
+                    <strong id="screenshotPreviewHostname">sitio.com</strong>
+                    <span class="badge-mini" style="background:var(--brand-purple);color:#fff;">Captura en Vivo</span>
+                  </div>
+                  <div class="screenshot-service-actions">
+                    <button type="button" class="btn btn-outline btn-sm" id="reloadScreenshotBtn" title="Recargar imagen">
+                      🔄 Recargar
+                    </button>
+                    <button type="button" class="btn btn-outline btn-sm" id="switchScreenshotServiceBtn" title="Cambiar motor de captura">
+                      Motor: <span id="currentServiceLabel">WordPress</span> ▾
+                    </button>
+                  </div>
+                </div>
+                <div class="screenshot-img-container">
+                  <img id="liveScreenshotImg" src="" alt="Captura web en vivo" loading="eager">
+                  <div class="screenshot-loading-overlay" id="screenshotLoadingOverlay" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Capturando pantalla de la web...</p>
+                  </div>
+                </div>
+                <div class="screenshot-custom-upload-bar">
+                  <span>¿Prefieres usar tu propio archivo?</span>
+                  <label class="btn btn-outline btn-sm custom-cover-label" title="Subir imagen desde tu computadora">
+                    📁 Subir Imagen / Mockup desde PC
+                    <input type="file" id="webCustomCoverInput" accept="image/*" style="display:none;">
+                  </label>
+                </div>
+              </div>
+
+              <p class="field-hint" id="webUrlHint">
+                Escribe o pega la dirección de la web. El sistema la detectará en tiempo real, generará su captura de pantalla como foto de portada y activará el botón <strong>"Ver proyecto en vivo"</strong>.
+              </p>
+            </div>
+
+            <div class="form-group" id="videoUrlGroup">
+              <label for="projectVideoUrlInput" class="form-label">Enlace de Video Alternativo (YouTube / Vimeo / Reel)</label>
+              <input type="url" id="projectVideoUrlInput" placeholder="https://youtube.com/watch?v=... o archivo mp4">
+            </div>
+          </div>
+
+          <!-- Feature & Status Toggles -->
+          <div class="form-row-toggles">
+            <label class="toggle-control">
+              <input type="checkbox" id="projectFeaturedToggle">
+              <span class="toggle-switch"></span>
+              <span class="toggle-text">Destacar en portada (Prioridad visual)</span>
+            </label>
+
+            <label class="toggle-control">
+              <input type="checkbox" id="projectStatusToggle" checked>
+              <span class="toggle-switch"></span>
+              <span class="toggle-text">Publicado para clientes (Desmarcar para borrador)</span>
+            </label>
+          </div>
+
+          <div class="form-actions-bottom">
+            <button type="submit" id="saveProjectBtn" class="btn btn-primary btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span id="saveBtnLabel">Guardar y Publicar Trabajo</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- TAB 2: MANAGE PROJECTS -->
+      <div id="manageTab" class="admin-tab-pane">
+        <div class="manage-success-banner" id="manageSuccessBanner" style="display: none;">
+          <div>
+            <strong>¡Proyecto guardado con éxito!</strong>
+            <p>Ya está publicado en el portafolio de clientes.</p>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm" id="createAnotherProjectBtn">
+            + Subir Otro Proyecto
+          </button>
+        </div>
+
+        <div class="manage-header-row">
+          <h3>Trabajos en tu Portafolio</h3>
+          <button id="adminNewProjectQuickBtn" class="btn btn-primary btn-sm">+ Nuevo Trabajo</button>
+        </div>
+
+        <div class="admin-projects-list" id="adminProjectsList">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- TAB 3: SETTINGS -->
+      <div id="settingsTab" class="admin-tab-pane">
+        <form id="settingsForm" class="settings-form">
+          <h3>Ajustes Generales del Estudio</h3>
+          
+          <div class="form-group">
+            <label for="settingStudioTitle" class="form-label">Nombre del Estudio</label>
+            <input type="text" id="settingStudioTitle" value="YOYOESTUDIO">
+          </div>
+
+          <div class="form-group">
+            <label for="settingStudioTagline" class="form-label">Lema o Subtítulo del Estudio</label>
+            <input type="text" id="settingStudioTagline" value="Diseño, Estrategia & Producción Visual">
+          </div>
+
+          <div class="form-group">
+            <label for="settingWhatsapp" class="form-label">Número de WhatsApp (con código de país)</label>
+            <input type="text" id="settingWhatsapp" placeholder="+593999999999">
+          </div>
+
+          <div class="form-group">
+            <label for="settingEmail" class="form-label">Correo de Contacto</label>
+            <input type="email" id="settingEmail" placeholder="contacto@yoyoestudio.com">
+          </div>
+
+          <div class="form-group">
+            <label for="settingAdminPin" class="form-label">Cambiar PIN de Administrador (deja en blanco si no deseas cambiarlo)</label>
+            <input type="password" id="settingAdminPin" placeholder="Nuevo PIN numérico">
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Guardar Ajustes
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Application Logic -->
+  <script src="/app.js"></script>
+</body>
+</html>

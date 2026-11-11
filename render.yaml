@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: yoyoestudio-portfolio
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
+      - key: PORT
+        value: 3001
+      - key: ADMIN_PIN
+        sync: false
