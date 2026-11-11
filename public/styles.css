@@ -325,22 +325,23 @@ button, input, select, textarea {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.35rem 1rem;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
+  padding: 0.4rem 1.1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius-full);
   font-size: 0.82rem;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: #ffffff;
   margin-bottom: 1.5rem;
+  letter-spacing: 0.03em;
 }
 
 .badge-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--brand-teal);
-  box-shadow: 0 0 8px var(--brand-teal);
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
   animation: pulseDot 2s infinite ease-in-out;
 }
 
@@ -351,12 +352,13 @@ button, input, select, textarea {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-size: clamp(2.2rem, 4.8vw, 3.8rem);
   font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.25rem;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.35rem;
   color: #ffffff;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
 }
 
 .gradient-text {
@@ -366,63 +368,59 @@ button, input, select, textarea {
 }
 
 .hero-subtitle {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: var(--text-secondary);
-  max-width: 760px;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: #ffffff;
+  opacity: 0.92;
+  max-width: 820px;
   margin: 0 auto 2.5rem;
-  line-height: 1.7;
+  line-height: 1.75;
+  font-weight: 400;
 }
 
 /* ========================================================
-   Category Filters (Large, Centered, Impactful Cards)
+   Category Filters (Square Cards, 2 Lines of 3, Centered)
    ======================================================== */
 .category-filters {
-  margin: 2rem auto 3.5rem;
-  max-width: 1200px;
+  margin: 2.5rem auto 4.5rem;
+  max-width: 900px;
   width: 100%;
 }
 
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   width: 100%;
   justify-content: center;
 }
 
-@media (max-width: 1150px) {
-  .category-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .category-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-  .filter-tab {
-    padding: 1.4rem 0.65rem;
-    min-height: 150px;
-  }
-  .tab-icon-wrap {
-    width: 60px;
-    height: 60px;
-  }
-  .tab-icon-wrap svg {
-    width: 30px;
-    height: 30px;
-  }
-  .tab-label {
-    font-size: 0.95rem;
+    gap: 1.15rem;
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 480px) {
   .category-grid {
-    grid-template-columns: 1fr;
-    gap: 0.65rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+  .filter-tab {
+    padding: 1.25rem 0.75rem !important;
+    border-radius: 18px !important;
+  }
+  .tab-icon-wrap {
+    width: 68px !important;
+    height: 68px !important;
+    border-radius: 18px !important;
+  }
+  .tab-icon-wrap svg {
+    width: 34px !important;
+    height: 34px !important;
+  }
+  .tab-label {
+    font-size: 0.95rem !important;
   }
 }
 
@@ -432,19 +430,19 @@ button, input, select, textarea {
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 1rem;
-  padding: 1.85rem 1rem;
+  gap: 1.1rem;
+  padding: 2rem 1.25rem;
+  aspect-ratio: 1 / 1;
   background: var(--bg-card);
   border: 1.5px solid var(--border-subtle);
-  border-radius: 20px;
+  border-radius: 24px;
   color: var(--text-secondary);
   cursor: pointer;
   position: relative;
   transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
   user-select: none;
   overflow: hidden;
-  min-height: 175px;
 }
 
 .filter-tab::before {
@@ -453,16 +451,16 @@ button, input, select, textarea {
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
+  height: 5px;
   background: var(--cat-color, var(--primary));
   opacity: 0;
   transition: opacity 0.25s ease;
 }
 
 .filter-tab:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px) scale(1.02);
   border-color: var(--cat-color, var(--primary));
-  box-shadow: 0 14px 32px -6px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.55);
   color: var(--text-primary);
 }
 
@@ -474,7 +472,7 @@ button, input, select, textarea {
   background: var(--bg-card);
   border-color: var(--cat-color, var(--primary));
   color: var(--text-primary);
-  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.5), 0 0 0 1.5px var(--cat-color, var(--primary));
+  box-shadow: 0 14px 36px -4px rgba(0, 0, 0, 0.6), 0 0 0 2px var(--cat-color, var(--primary));
 }
 
 .filter-tab.active::before {
@@ -485,33 +483,33 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 72px;
-  height: 72px;
-  border-radius: 20px;
+  width: 88px;
+  height: 88px;
+  border-radius: 24px;
   background: rgba(255, 255, 255, 0.05);
   color: var(--cat-color, var(--text-primary));
-  border: 1.5px solid rgba(255, 255, 255, 0.09);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
   transition: all 0.28s ease;
 }
 
 .tab-icon-wrap svg {
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   stroke: var(--cat-color, currentColor);
   stroke-width: 2.1;
   transition: transform 0.28s ease;
 }
 
 .filter-tab:hover .tab-icon-wrap {
-  transform: scale(1.12);
+  transform: scale(1.1);
   background: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 0 24px -2px var(--cat-color, rgba(255, 255, 255, 0.3));
+  box-shadow: 0 0 28px -2px var(--cat-color, rgba(255, 255, 255, 0.35));
 }
 
 .filter-tab.active .tab-icon-wrap {
-  transform: scale(1.12);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 28px -2px var(--cat-color, rgba(255, 255, 255, 0.45));
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 0 32px -2px var(--cat-color, rgba(255, 255, 255, 0.5));
   border-color: var(--cat-color, var(--primary));
 }
 
@@ -525,7 +523,7 @@ button, input, select, textarea {
 
 .tab-label {
   font-family: var(--font-display, 'Montserrat', sans-serif);
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 700;
   line-height: 1.25;
   color: inherit;
@@ -534,22 +532,13 @@ button, input, select, textarea {
 
 .tab-count {
   font-family: var(--font-body, 'Montserrat', sans-serif);
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  padding: 0.2rem 0.7rem;
+  padding: 0.25rem 0.85rem;
   background: rgba(255, 255, 255, 0.08);
   color: var(--text-muted);
   border-radius: var(--radius-full);
   min-width: 26px;
-  text-align: center;
-  transition: all 0.2s ease;
-}
-  font-weight: 700;
-  padding: 0.15rem 0.6rem;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--text-muted);
-  border-radius: var(--radius-full);
-  min-width: 24px;
   text-align: center;
   transition: all 0.2s ease;
 }
@@ -1876,7 +1865,16 @@ button, input, select, textarea {
   color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.7;
-  max-width: 380px;
+  max-width: 440px;
+}
+
+.footer-services-tagline {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-top: 0.85rem;
+  line-height: 1.55;
+  font-weight: 500;
+  max-width: 440px;
 }
 
 .footer-categories h4, .footer-contact h4 {
