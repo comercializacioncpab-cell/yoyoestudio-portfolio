@@ -3,7 +3,9 @@ const path = require('node:path');
 const fs = require('node:fs');
 
 const dbPath = path.join(__dirname, 'portfolio.db');
+console.log('📦 [YOYOESTUDIO] Abriendo base de datos SQLite en:', dbPath);
 const db = new DatabaseSync(dbPath);
+console.log('✅ [YOYOESTUDIO] Base de datos SQLite conectada con éxito.');
 
 // Enable foreign keys
 db.exec('PRAGMA foreign_keys = ON;');
