@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "Portafolio y gestor de contenidos para YOYOESTUDIO",
   "main": "server.js",
+  "engines": {
+    "node": ">=22.5.0"
+  },
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js"
+    "start": "node --experimental-sqlite server.js",
+    "dev": "node --watch --experimental-sqlite server.js"
   },
   "dependencies": {
     "busboy": "^1.6.0",
