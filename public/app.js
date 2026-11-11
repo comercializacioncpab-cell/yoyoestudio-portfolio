@@ -10,7 +10,7 @@
   const state = {
     projects: [],
     filteredProjects: [],
-    activeCategory: 'Todos',
+    activeCategory: null, // Clean homepage by default: only options are shown until clicked
     searchQuery: '',
     currentModalIndex: -1,
     activeMediaIndex: 0,
@@ -275,12 +275,24 @@
     const q = state.searchQuery.toLowerCase().trim();
     const cat = state.activeCategory;
 
+    // Vista limpia en homepage: si no hay categoría seleccionada ni búsqueda, no mostrar trabajos abajo
+    if (!cat && !q) {
+      el.projectsGrid.innerHTML = '';
+      el.projectsGrid.style.display = 'none';
+      el.emptyState.style.display = 'none';
+      if (el.loadingState) el.loadingState.style.display = 'none';
+      el.filterStatus.style.display = 'none';
+      return;
+    }
+
+    el.projectsGrid.style.display = 'grid';
+
     state.filteredProjects = state.projects.filter(p => {
       // If not admin, only show published
       if (!state.isAdmin && p.status !== 'published') return false;
 
       // Category match
-      if (cat !== 'Todos' && p.category !== cat) return false;
+      if (cat && p.category !== cat) return false;
 
       // Search match
       if (q) {
@@ -297,12 +309,13 @@
     renderProjectsGrid();
 
     // Show/hide filter status bar
-    if (cat !== 'Todos' || q) {
+    if (cat || q) {
       el.filterStatus.style.display = 'flex';
-      let text = `Filtrando por: <strong>${cat}</strong>`;
-      if (q) text += ` · Búsqueda: "<em>${q}</em>"`;
-      text += ` (${state.filteredProjects.length} resultado${state.filteredProjects.length === 1 ? '' : 's'})`;
+      let text = cat ? `Mostrando proyectos de: <strong>${cat}</strong>` : '';
+      if (q) text += (text ? ' · ' : '') + `Búsqueda: "<em>${q}</em>"`;
+      text += ` (${state.filteredProjects.length} trabajo${state.filteredProjects.length === 1 ? '' : 's'})`;
       el.filterStatusText.innerHTML = text;
+      el.resetFiltersBtn.textContent = '✕ Ocultar y volver al inicio';
     } else {
       el.filterStatus.style.display = 'none';
     }
@@ -1173,7 +1186,7 @@
     // Brand home click resets filter
     el.brandHomeLink.addEventListener('click', (e) => {
       e.preventDefault();
-      setCategory('Todos');
+      setCategory(null);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
@@ -1202,7 +1215,8 @@
       el.searchInput.value = '';
       state.searchQuery = '';
       el.clearSearchBtn.style.display = 'none';
-      setCategory('Todos');
+      setCategory(null);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     // Category Tabs click
@@ -1400,11 +1414,22 @@
   }
 
   function setCategory(cat) {
-    state.activeCategory = cat;
+    if (state.activeCategory === cat) {
+      // Alternar si ya está activo para volver a la pantalla limpia inicial
+      state.activeCategory = null;
+    } else {
+      state.activeCategory = cat;
+    }
     document.querySelectorAll('.filter-tab').forEach(t => {
-      t.classList.toggle('active', t.dataset.category === cat);
+      t.classList.toggle('active', !!state.activeCategory && t.dataset.category === state.activeCategory);
     });
     applyFilters();
+    if (state.activeCategory && el.filterStatus) {
+      setTimeout(() => {
+        const yOffset = el.filterStatus.getBoundingClientRect().top + window.pageYOffset - 90;
+        window.scrollTo({ top: yOffset, behavior: 'smooth' });
+      }, 50);
+    }
   }
 
   // --- UTILS ---
