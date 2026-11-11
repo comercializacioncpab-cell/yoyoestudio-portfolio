@@ -359,12 +359,23 @@ button, input, select, textarea {
   margin-bottom: 1.35rem;
   color: #ffffff;
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+  transition: color var(--transition-base), text-shadow var(--transition-base);
+}
+
+[data-theme="light"] .hero-title {
+  color: #0b0f19 !important;
+  text-shadow: none !important;
 }
 
 .gradient-text {
   color: #ffffff;
   background: none;
   -webkit-text-fill-color: #ffffff;
+}
+
+[data-theme="light"] .gradient-text {
+  color: #0b0f19 !important;
+  -webkit-text-fill-color: #0b0f19 !important;
 }
 
 .hero-subtitle {
@@ -375,6 +386,23 @@ button, input, select, textarea {
   margin: 0 auto 2.5rem;
   line-height: 1.75;
   font-weight: 400;
+  transition: color var(--transition-base), opacity var(--transition-base);
+}
+
+[data-theme="light"] .hero-subtitle {
+  color: #1e293b !important;
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .hero-badge {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.14) !important;
+  color: #0b0f19 !important;
+}
+
+[data-theme="light"] .badge-dot {
+  background: #0b0f19 !important;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* ========================================================
@@ -787,6 +815,45 @@ button, input, select, textarea {
   body.category-active {
     padding-bottom: 84px;
   }
+}
+
+/* Light mode adjustments for Floating Category Dock */
+[data-theme="light"] .floating-category-dock {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .dock-btn {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .dock-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .dock-btn.active {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .dock-divider {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .dock-back-btn {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.14);
+  color: #0b0f19;
+}
+
+[data-theme="light"] .dock-back-btn svg {
+  stroke: #0b0f19;
+}
+
+[data-theme="light"] .dock-tooltip {
+  background: #0b0f19;
+  color: #ffffff;
 }
 
 /* Hero compact mode when viewing category */
@@ -1244,6 +1311,33 @@ button, input, select, textarea {
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.25rem;
+  color: #ffffff;
+  transition: color var(--transition-base);
+}
+
+[data-theme="light"] .modal-title {
+  color: #0b0f19 !important;
+}
+
+[data-theme="light"] .modal-description {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .client-pill, 
+[data-theme="light"] .year-pill {
+  color: #475569 !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .modal-close-btn {
+  background: rgba(0, 0, 0, 0.07);
+  border-color: rgba(0, 0, 0, 0.14);
+  color: #0b0f19;
+}
+
+[data-theme="light"] .modal-close-btn:hover {
+  background: var(--accent-primary);
+  color: #ffffff;
 }
 
 .modal-description {
